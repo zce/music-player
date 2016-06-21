@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>使用this方式使用</title>
+</head>
+
+<body ng-app="app">
+  <div ng-view></div>
+  <script src="assets/lib/angular.js"></script>
+  <script src="assets/lib/angular-route.js"></script>
+  <script>
+    angular.module('app', ['ngRoute'])
+      .config(['$routeProvider', function($routeProvider) {
+        $routeProvider
+          .when('/', {
+            controller: 'HomeController',
+            templateUrl: 'home',
+            controllerAs: 'vm'
+          })
+          .when('/demo', {
+            controller: 'DemoController',
+            templateUrl: 'demo',
+          })
+      }])
+      .controller('HomeController', [function() {
+        const vm = this
+        vm.data = {}
+        vm.data.name = '张三'
+      }])
+  </script>
+  <script id="home" type="text/ng-template">
+    <h1>{{vm.data.name}}</h1>
+  </script>
+</body>
+
+</html>

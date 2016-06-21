@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>使用this方式使用</title>
+</head>
+
+<body ng-app="app">
+  <div ng-controller="ThisController as demo">
+    <h1>{{demo.name}}</h1>
+  </div>
+  <div ng-controller="ScopeController1">
+    <h1>{{name}}</h1>
+    <div ng-controller="ScopeController2">
+      <h1>{{$parent.name}}</h1>
+    </div>
+  </div>
+  <script src="assets/lib/angular.js"></script>
+  <script>
+    angular.module('app', [])
+      .controller('ThisController', [function() {
+        this.name = 'demo'
+        this.other = ''
+      }])
+      .controller('ScopeController1', ['$scope', function($scope) {
+        $scope.name = 'demo1'
+      }])
+      .controller('ScopeController2', ['$scope', function($scope) {
+        $scope.name = 'demo2'
+      }])
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <!-- <link href="http://fonts.useso.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css"> -->
+</head>
+
+<body class="page" ng-app="musicApp">
+  <header class="header">
+    <a href="#/home"><i class="fa fa-expand"></i></a>
+    <h1><i class="fa fa-music"></i> Music Player</h1>
+    <a href="#/list"><i class="fa fa-list"></i></a>
+  </header>
+  <section class="main" ng-view></section>
+  <script src="assets/lib/angular.js"></script>
+  <script src="assets/lib/angular-route.js"></script>
+  <script src="app.js"></script>
+  <!-- 在页面中定义模版的方式 必须有ID， 其次 type一定不能是text/javascript -->
+  <script id="home" type="text/ng-template">
+    <img src="assets/img/home.png" alt="" width="100%">
+  </script>
+  <script id="list" type="text/ng-template">
+    <div class="list">
+      <ol>
+        <li ng-repeat="item in data.list">
+          <a href="#/item/{{item.id}}">
+            <span class="num">{{('0000' + item.id).slice(-3)}}</span>
+            <div class="info">
+              <h3 class="title">{{item.title}}</h3>
+              <span class="artist">{{item.artist}}</span>
+            </div>
+            <!-- <span class="duration">04:50</span> -->
+            <div class="photo"><img ng-src="{{item.poster}}" alt="{{item.artist}}"></div>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </script>
+  <script id="item" type="text/ng-template">
+    <div class="player">
+      <div class="disc">
+        <img src="{{data.item.poster}}" alt="{{data.item.artist}}" style="transform:rotate({{2*360*data.current/data.duration}}deg)">
+        <span class="duration">{{action.convert(data.duration - data.current)}}</span>
+      </div>
+      <h2 class="title">{{data.item.title}}</h2>
+      <h3 class="artist">{{data.item.artist}}</h3>
+      <div class="lyric">
+        <p class="previous">人如天上的明月是不可拥有</p>
+        <p class="current">情如曲过只遗留无可挽救再分别</p>
+        <p class="next">为何只是失望填密我的空虚</p>
+      </div>
+      <input type="range" min="0" max="{{data.duration}}" ng-model="data.current" ng-change="action.progress()">
+      <div class="controls">
+        <button><i class="fa fa-retweet"></i></button>
+        <button class="active"><i class="fa fa-backward"></i></button>
+        <button class="active" ng-click="action.play()"><i class="fa" ng-class="{' fa-play':!data.playing, 'fa-pause':data.playing}"></i></button>
+        <button class="active"><i class="fa fa-forward"></i></button>
+        <button class="active"><i class="fa fa-random"></i></button>
+      </div>
+    </div>
+  </script>
+</body>
+
+</html>

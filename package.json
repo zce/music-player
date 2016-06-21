@@ -1,0 +1,21 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "iceStone <ice@micua.com> (http://blog.wedn.net/)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "formidable": "^1.0.17",
+    "glob": "^7.0.3",
+    "mongoose": "^4.4.20",
+    "xtemplate": "^4.5.1",
+    "xtpl": "^3.2.0"
+  }
+}

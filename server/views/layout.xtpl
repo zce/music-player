@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  {{{block ('styles')}}}
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="page-header">
+        <h1>{{title}}</h1>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="container">
+      {{{block ('body')}}}
+    </div>
+  </section>
+</body>
+</html>

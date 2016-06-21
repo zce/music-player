@@ -1,0 +1,14 @@
+{
+  "name": "music-player-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "author": "iceStone <ice@micua.com> (http://blog.wedn.net/)",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.2"
+  }
+}
