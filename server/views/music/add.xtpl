@@ -1,0 +1,27 @@
+{{extend ('../layout')}}
+
+{{#block ('body')}}
+{{!-- 如果表单中有文件域，表单必须是POST方式，而且enctype必须是multipart/form-data --!}}
+<form action="/music/add" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="title">title</label>
+    <input type="text" class="form-control" name="title" id="title">
+  </div>
+  <div class="form-group">
+    <label for="artist">artist</label>
+    <input type="text" class="form-control" name="artist" id="artist">
+  </div>
+  <div class="form-group">
+    <label for="music">music</label>
+    {{!-- accept：这个文件域只能选择某种类型的文件，属性值为 mime-type --!}}
+    <input type="file" class="form-control" name="music" id="music" accept="audio/*">
+  </div>
+  <div class="form-group">
+    <label for="poster">poster</label>
+    <input type="file" class="form-control" name="poster" id="poster" accept="image/*">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+  </div>
+</form>
+{{/block}}

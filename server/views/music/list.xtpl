@@ -1,0 +1,32 @@
+{{extend ('../layout')}}
+
+{{#block ('body')}}
+<p><a class="btn btn-default" href="/music/add">ADD</a></p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>title</th>
+      <th>artist</th>
+      <th>music</th>
+      <th>poster</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each(list)}}
+    <tr>
+      <td>{{this.id}}</td>
+      <td>{{this.title}}</td>
+      <td>{{this.artist}}</td>
+      <td>{{this.music}}</td>
+      <td>{{this.poster}}</td>
+      <td>
+        <a href="/music/edit/{{this.id}}">edit</a><br>
+        <a href="/music/delete/{{this.id}}">delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{/block}}

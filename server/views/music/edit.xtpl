@@ -1,0 +1,21 @@
+{{extend ('../layout')}}
+
+{{#block ('body')}}
+<form action="/music/edit/{{item.id}}" method="post">
+  <div class="form-group">
+    <label for="id">#</label>
+    <input type="text" class="form-control" name="id" id="id" value="{{item.id}}" readonly>
+  </div>
+  <div class="form-group">
+    <label for="title">title</label>
+    <input type="text" class="form-control" name="title" id="title" value="{{item.title}}">
+  </div>
+  <div class="form-group">
+    <label for="artist">artist</label>
+    <input type="text" class="form-control" name="artist" id="artist" value="{{item.artist}}">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+  </div>
+</form>
+{{/block}}
