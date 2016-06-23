@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue Router Structure</title>
+</head>
+
+<body class="page">
+  <ul>
+    <li><a v-link="{ name: 'home' }">HOME</a></li>
+    <li><a v-link="{ name: 'list' }">SONGS</a></li>
+    <li><a v-link="{ name: 'item' }">Songs</a></li>
+  </ul>
+  <router-view></router-view>
+  <script src="libs/vue/vue.js"></script>
+  <script src="libs/vue-router/vue-router.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
