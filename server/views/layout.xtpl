@@ -19,5 +19,6 @@
       {{{block ('body')}}}
     </div>
   </section>
+  {{{block ('scripts')}}}
 </body>
 </html>

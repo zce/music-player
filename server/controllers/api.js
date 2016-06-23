@@ -15,12 +15,13 @@ router.get('/music', (req, res) => {
   // res.send(`foo(${Music.getList()})`)
   // 如果是自己写 必须设置响应的响应类型
   // jsonp方法中会自动接收客户端传来的回调函数名称
-  const list = Music.getList()
+  const list = Music.find()
   res.jsonp(list.map(item => {
     const temp = {}
     Object.assign(temp, item)
     temp.music = req.app.get('url') + '/uploads/' + temp.music
     temp.poster = req.app.get('url') + '/uploads/' + temp.poster
+    temp.lyric = req.app.get('url') + '/uploads/' + temp.lyric
     return temp
   }))
 })
@@ -34,10 +35,11 @@ router.get('/music/:id', (req, res) => {
     // 不存在这个数据
     return res.status(404).send('没有该记录')
   }
-  const item = Music.getById(id)
+  const item = Music.findOne(id)
   const temp = {}
   Object.assign(temp, item)
   temp.music = req.app.get('url') + '/uploads/' + temp.music
   temp.poster = req.app.get('url') + '/uploads/' + temp.poster
+  temp.lyric = req.app.get('url') + '/uploads/' + temp.lyric
   res.jsonp(temp)
 })

@@ -4,8 +4,8 @@
 {{!-- 如果表单中有文件域，表单必须是POST方式，而且enctype必须是multipart/form-data --!}}
 <form action="/music/add" method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="title">title</label>
-    <input type="text" class="form-control" name="title" id="title">
+    <label for="name">name</label>
+    <input type="text" class="form-control" name="name" id="name">
   </div>
   <div class="form-group">
     <label for="artist">artist</label>
@@ -21,7 +21,30 @@
     <input type="file" class="form-control" name="poster" id="poster" accept="image/*">
   </div>
   <div class="form-group">
+    <label for="lyric">lyric</label>
+    <input type="file" class="form-control" name="lyric" id="lyric" accept=".lrc">
+  </div>
+  <div class="form-group">
+    <input type="hidden" name="duration" id="duration">
     <button type="submit" class="btn btn-primary">SUBMIT</button>
   </div>
 </form>
+{{/block}}
+
+{{#block ('scripts')}}
+  <script>
+    (function (global) {
+      var document = global.document
+      var musicElement = document.getElementById('music')
+      var durationElement = document.getElementById('duration')
+      musicElement.addEventListener('change', function () {
+        var url = global.URL.createObjectURL(this.files[0])
+        var audio = new Audio()
+        audio.src = url
+        audio.addEventListener('loadedmetadata', function () {
+          durationElement.value = audio.duration
+        })
+      })
+    })(this)
+  </script>
 {{/block}}

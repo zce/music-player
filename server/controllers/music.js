@@ -16,9 +16,8 @@ router.prefix = '/music'
  * GET /music/list
  */
 router.get('/list', (req, res) => {
-  // res.render('music/list', { title: '音乐列表' })
   res.locals.title = '音乐列表'
-  res.locals.list = Music.getList()
+  res.locals.list = Music.find()
   res.render('music/list')
 })
 
@@ -39,16 +38,19 @@ router.post('/add', (req, res) => {
   form.keepExtensions = true
   form.parse(req, (error, fields, files) => {
     if (error) throw error
-
     // 接收到客户端提交过来文件和填写的信息
     let id = 0
-    Music.getList().forEach(m => {
-        if (m.id > id) {
-          id = m.id
-        }
-      })
-      // 此时不能保存完整路径
-    const music = new Music(id + 1, fields.title, fields.artist, path.basename(files.music.path), path.basename(files.poster.path))
+    Music.find().forEach(m => { if (m.id > id) id = m.id })
+    // 此时不能保存完整路径
+    const music = new Music(
+      id + 1,
+      fields.name,
+      fields.artist,
+      fields.duration,
+      path.basename(files.music.path),
+      path.basename(files.poster.path),
+      path.basename(files.lyric.path)
+    )
     music.save()
     res.redirect('/music/list')
   })
@@ -66,7 +68,7 @@ router.get('/edit/:id', (req, res) => {
     return res.status(404).send('没有该记录')
   }
   // 找到数组中的这个元素删除
-  const temp = Music.getById(id)
+  const temp = Music.findOne(id)
   if (!temp) {
     // 不存在这个数据
     return res.status(404).send('没有该记录')
@@ -87,12 +89,12 @@ router.post('/edit/:id', (req, res) => {
     return res.status(404).send('没有该记录')
   }
   // 找到数组中的这个元素删除
-  const temp = Music.getById(id)
+  const temp = Music.findOne(id)
   if (!temp) {
     // 不存在这个数据
     return res.status(404).send('没有该记录')
   }
-  temp.title = req.body.title
+  temp.name = req.body.name
   temp.artist = req.body.artist
   if (!temp.update()) {
     res.locals.item = temp
@@ -112,7 +114,7 @@ router.get('/delete/:id', (req, res) => {
     return res.status(404).send('没有该记录')
   }
   // 找到数组中的这个元素删除
-  const temp = Music.getById(id)
+  const temp = Music.findOne(id)
   if (!temp) {
     // 不存在这个数据
     return res.status(404).send('没有该记录')

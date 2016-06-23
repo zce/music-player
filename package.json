@@ -4,7 +4,8 @@
   "description": "```bash\r $ npm install\r $ npm start\r ```",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "serve": "node index.js",
+    "client": "browser-sync start --server client --files \"client/**/*.html, client/**/*.js, client/**/*.css\" --no-notify"
   },
   "keywords": [
     "music player",
