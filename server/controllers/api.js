@@ -36,6 +36,10 @@ router.get('/music/:id', (req, res) => {
     return res.status(404).send('没有该记录')
   }
   const item = Music.findOne(id)
+  if (!item) {
+    // 不存在这个数据
+    return res.status(404).send('没有该记录')
+  }
   const temp = {}
   Object.assign(temp, item)
   temp.music = req.app.get('url') + '/uploads/' + temp.music

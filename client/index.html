@@ -29,7 +29,7 @@
       <ol>
         <li v-for="item in list">
           <a v-link="{ name: 'item', params: { id: item.id } }">
-            <span class="num">{{item.id}}</span>
+            <span class="num">{{pad(item.id, 3)}}</span>
             <div class="info">
               <h3 class="title">{{item.name}}</h3>
               <span class="artist">{{item.artist}}</span>
@@ -66,6 +66,7 @@
   </script>
   <script src="libs/vue/vue.js"></script>
   <script src="libs/vue-router/vue-router.js"></script>
+  <script src="libs/vue-resource/vue-resource.js"></script>
   <script src="app.js"></script>
 </body>
 
