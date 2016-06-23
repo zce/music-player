@@ -1,0 +1,8 @@
+{
+  "name": "music-player",
+  "version": "0.1.0",
+  "description": "A music player client by iceStone <ice@micua.com> (http://blog.wedn.net/)",
+  "main": "main.js",
+  "author": "iceStone <ice@micua.com> (http://blog.wedn.net/)",
+  "license": "ISC"
+}

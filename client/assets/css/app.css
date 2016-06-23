@@ -28,6 +28,7 @@ body {
   background-color: #aaa;
 }
 
+a:focus,
 button:focus,
 input[type=range]:focus {
   outline: 0;
