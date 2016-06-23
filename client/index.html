@@ -27,169 +27,15 @@
   <script id="list_tmpl" type="text/v-template">
     <div class="list">
       <ol>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">001</span>
+        <li v-for="item in list">
+          <a v-link="{ name: 'item', params: { id: item.id } }">
+            <span class="num">{{item.id}}</span>
             <div class="info">
-              <h3 class="title">一生中最爱</h3>
-              <span class="artist">谭咏麟</span>
+              <h3 class="title">{{item.name}}</h3>
+              <span class="artist">{{item.artist}}</span>
             </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/谭咏麟.jpg" alt="谭咏麟"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">002</span>
-            <div class="info">
-              <h3 class="title">合久必婚</h3>
-              <span class="artist">李克勤</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/李克勤.jpg" alt="李克勤"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">003</span>
-            <div class="info">
-              <h3 class="title">送情郎(2010.12.11 德云二队张一元晚场)</h3>
-              <span class="artist">岳云鹏</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/岳云鹏.jpg" alt="岳云鹏"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">001</span>
-            <div class="info">
-              <h3 class="title">一生中最爱</h3>
-              <span class="artist">谭咏麟</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/谭咏麟.jpg" alt="谭咏麟"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">002</span>
-            <div class="info">
-              <h3 class="title">合久必婚</h3>
-              <span class="artist">李克勤</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/李克勤.jpg" alt="李克勤"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">003</span>
-            <div class="info">
-              <h3 class="title">送情郎(2010.12.11 德云二队张一元晚场)</h3>
-              <span class="artist">岳云鹏</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/岳云鹏.jpg" alt="岳云鹏"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">001</span>
-            <div class="info">
-              <h3 class="title">一生中最爱</h3>
-              <span class="artist">谭咏麟</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/谭咏麟.jpg" alt="谭咏麟"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">002</span>
-            <div class="info">
-              <h3 class="title">合久必婚</h3>
-              <span class="artist">李克勤</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/李克勤.jpg" alt="李克勤"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">003</span>
-            <div class="info">
-              <h3 class="title">送情郎(2010.12.11 德云二队张一元晚场)</h3>
-              <span class="artist">岳云鹏</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/岳云鹏.jpg" alt="岳云鹏"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">001</span>
-            <div class="info">
-              <h3 class="title">一生中最爱</h3>
-              <span class="artist">谭咏麟</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/谭咏麟.jpg" alt="谭咏麟"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">002</span>
-            <div class="info">
-              <h3 class="title">合久必婚</h3>
-              <span class="artist">李克勤</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/李克勤.jpg" alt="李克勤"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">003</span>
-            <div class="info">
-              <h3 class="title">送情郎(2010.12.11 德云二队张一元晚场)</h3>
-              <span class="artist">岳云鹏</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/岳云鹏.jpg" alt="岳云鹏"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">001</span>
-            <div class="info">
-              <h3 class="title">一生中最爱</h3>
-              <span class="artist">谭咏麟</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/谭咏麟.jpg" alt="谭咏麟"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">002</span>
-            <div class="info">
-              <h3 class="title">合久必婚</h3>
-              <span class="artist">李克勤</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/李克勤.jpg" alt="李克勤"></div>
-          </a>
-        </li>
-        <li>
-          <a v-link="{ name: 'item', params: { id: 10 } }">
-            <span class="num">003</span>
-            <div class="info">
-              <h3 class="title">送情郎(2010.12.11 德云二队张一元晚场)</h3>
-              <span class="artist">岳云鹏</span>
-            </div>
-            <span class="duration">04:50</span>
-            <div class="photo"><img src="assets/img/岳云鹏.jpg" alt="岳云鹏"></div>
+            <span class="duration">{{item.duration}}</span>
+            <div class="photo"><img :src="item.poster"></div>
           </a>
         </li>
       </ol>
@@ -198,22 +44,22 @@
   <script id="item_tmpl" type="text/v-template">
     <div class="player">
       <div class="disc">
-        <img src="assets/img/李克勤.jpg" alt="李克勤">
-        <span class="duration">4:20</span>
+        <img :src="item.poster" alt="{{item.name}}" :style="{transform:'rotate(' + (item.current/item.duration*360*2) + 'deg)'}">
+        <span class="duration">{{convert(item.duration-item.current)}}</span>
       </div>
-      <h2 class="title">月半小夜曲</h2>
-      <h3 class="artist">李克勤</h3>
+      <h2 class="title">{{item.name}}</h2>
+      <h3 class="artist">{{item.artist}}</h3>
       <div class="lyric">
         <p class="previous">人如天上的明月是不可拥有</p>
         <p class="current">情如曲过只遗留无可挽救再分别</p>
         <p class="next">为何只是失望填密我的空虚</p>
       </div>
-      <input type="range" value="0">
+      <input type="range" value="0" min="0" max="{{item.duration}}" v-model="item.current" @change="progress()">
       <div class="controls">
         <button><i class="fa fa-retweet"></i></button>
-        <button class="active"><i class="fa fa-backward"></i></button>
-        <button class="active"><i class="fa fa-play"></i></button>
-        <button class="active"><i class="fa fa-forward"></i></button>
+        <button class="active" @click="prev()"><i class="fa fa-backward"></i></button>
+        <button class="active" @click="play()"><i class="fa" :class="{'fa-play':!item.playing, 'fa-pause':item.playing}"></i></button>
+        <button class="active" @click="next()"><i class="fa fa-forward"></i></button>
         <button class="active"><i class="fa fa-random"></i></button>
       </div>
     </div>

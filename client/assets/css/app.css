@@ -239,6 +239,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   border: 0;
   background-color: transparent;
   color: #fff;
+  width: 2.8125rem;
 }
 
 .player .controls button.active {
