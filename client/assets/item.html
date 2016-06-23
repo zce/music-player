@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Now Playing</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link href="//fonts.useso.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+</head>
+
+<body class="page">
+  <header class="header">
+    <a href="home.html"><i class="fa fa-expand"></i></a>
+    <h1><i class="fa fa-music"></i> Now Playing</h1>
+    <a href="list.html"><i class="fa fa-list"></i></a>
+  </header>
+  <section class="main">
+    <div class="player">
+      <div class="disc">
+        <img src="img/李克勤.jpg" alt="李克勤">
+        <span class="duration">4:20</span>
+      </div>
+      <h2 class="title">月半小夜曲</h2>
+      <h3 class="artist">李克勤</h3>
+      <div class="lyric">
+        <p class="previous">人如天上的明月是不可拥有</p>
+        <p class="current">情如曲过只遗留无可挽救再分别</p>
+        <p class="next">为何只是失望填密我的空虚</p>
+      </div>
+      <input type="range" value="0">
+      <div class="controls">
+        <button><i class="fa fa-retweet"></i></button>
+        <button class="active"><i class="fa fa-backward"></i></button>
+        <button class="active"><i class="fa fa-play"></i></button>
+        <button class="active"><i class="fa fa-forward"></i></button>
+        <button class="active"><i class="fa fa-random"></i></button>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

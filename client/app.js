@@ -1,72 +1,64 @@
-/**
- * 整个应用程序模块
- * @type {Vue}
- */
-var App = Vue.extend({})
+(function (global) {
+  /**
+   * 加载模版内容
+   * @param  {string} id 模版ID
+   * @return {string}    模版内容
+   */
+  var loadTemplate = function (id) {
+    return document.getElementById(id + '_tmpl').innerHTML
+  }
 
-/**
- * 首页组件
- * @type {Vue}
- */
-var Home = Vue.extend({
-  template: '<h1>Home</h1>'
-})
+  /**
+   * 整个应用程序模块
+   * @type {Vue}
+   */
+  var App = global.Vue.extend({})
 
-/**
- * 歌曲列表组件
- * @type {Vue}
- */
-var Songs = Vue.extend({
-  template: '<h1>Songs</h1>'
-})
+  /**
+   * 首页组件
+   * @type {Vue}
+   */
+  var Home = global.Vue.extend({
+    template: loadTemplate('home')
+  })
 
-/**
- * 播放器组件
- * @type {Vue}
- */
-var Player = Vue.extend({
-  template: '<h1>Player</h1>'
-})
+  /**
+   * 歌曲列表组件
+   * @type {Vue}
+   */
+  var Songs = global.Vue.extend({
+    template: loadTemplate('list')
+  })
 
-/**
- * 路由器用来分发每一次请求到不同的组件
- * @type {VueRouter}
- */
-var router = new VueRouter()
+  /**
+   * 播放器组件
+   * @type {Vue}
+   */
+  var Player = global.Vue.extend({
+    template: loadTemplate('item')
+  })
 
-router.map({
-  '/home': {
-    name: 'home',
-    component: Home
-  },
-  '/songs': {
-    name: 'list',
-    component: Songs
-  },
-  '/songs/:id': {
-    name: 'item',
-    component: Player
-  },
-})
+  /**
+   * 路由器用来分发每一次请求到不同的组件
+   * @type {VueRouter}
+   */
+  var router = new global.VueRouter()
 
-router.start(App, 'body')
+  router.map({
+    '/home': {
+      name: 'home',
+      component: Home
+    },
+    '/songs': {
+      name: 'list',
+      component: Songs
+    },
+    '/songs/:id': {
+      name: 'item',
+      component: Player
+    },
+  })
 
+  router.start(App, 'body')
 
-// router.on('/home', {
-//   component: {
-//     template: `<img src="assets/img/home.png" alt="" width="100%">`
-//   }
-// })
-
-// router.on('/date', {
-//   component: {
-//     template: `<h1>${new Date}</h1><p>{{stringify($route)}}</p>`,
-//     methods: {
-//       stringify: JSON.stringify
-//     }
-//   }
-// })
-
-// router.redirect({
-//   '*': '/home'
-// })
+})(this)
