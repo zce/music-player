@@ -10,6 +10,7 @@
   const loadTemplate = id => document.getElementById(id + '_tmpl').innerHTML
 
   const pad = (num, n) => (Array(n).join(0) + num).slice(-n)
+
   const convertDuration = duration => {
     const h = Math.floor(duration / 3600)
     const m = Math.floor(duration % 3600 / 60)
@@ -38,13 +39,16 @@
    */
   const Songs = global.Vue.extend({
     template: loadTemplate('list'),
-    data() {
-      this.$http.jsonp(`${serverUrl}/music`).then(res => { this.list = res.data })
+    data () {
+      this.$http.jsonp(`${serverUrl}/music`)
+        .then(res => {
+          this.list = res.data
+        })
       return { list: [] }
     },
     methods: {
       pad: pad
-    },
+    }
   })
 
   /**

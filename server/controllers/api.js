@@ -19,6 +19,7 @@ router.get('/music', (req, res) => {
   res.jsonp(list.map(item => {
     const temp = {}
     Object.assign(temp, item)
+    // lodash
     temp.music = req.app.get('url') + '/uploads/' + temp.music
     temp.poster = req.app.get('url') + '/uploads/' + temp.poster
     temp.lyric = req.app.get('url') + '/uploads/' + temp.lyric
