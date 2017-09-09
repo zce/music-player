@@ -1,5 +1,9 @@
 # Music Player by Vue Stack
 
+## Static pages
+
+https://github.com/zce/music-player-pages
+
 ## Clone it
 
 ```bash
